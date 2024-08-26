@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://deyoadxuqn46k"]
+
+[ext_resource type="Script" path="res://gameover.gd" id="1_bsont"]
+[ext_resource type="FontFile" uid="uid://mxiv0h7p17rx" path="res://Assets_aula1/OptimusPrincepsSemiBold.ttf" id="2_3in1e"]
+[ext_resource type="FontFile" uid="uid://dhphv02m7ix15" path="res://Assets_aula1/OptimusPrinceps.ttf" id="2_5a2nm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nalmd"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="gameover" type="CanvasLayer"]
+script = ExtResource("1_bsont")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = -52.0
+offset_right = 122.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3in1e")
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_nalmd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bt_rstrt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5a2nm")
+text = "RESTART
+"
+
+[node name="bt_quit2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5a2nm")
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/bt_rstrt" to="." method="_on_bt_rstrt_pressed"]
+[connection signal="pressed" from="VBoxContainer/bt_quit2" to="." method="_on_bt_quit_2_pressed"]

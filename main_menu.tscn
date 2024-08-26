@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://crlqiai5uh83m"]
+
+[ext_resource type="FontFile" uid="uid://bqo4nyl421osp" path="res://Assets_aula1/upheavtt.ttf" id="2_xiewl"]
+[ext_resource type="Texture2D" uid="uid://c48mk3cp6iqu2" path="res://Assets_aula1/menudojogo.png" id="3_gb3q6"]
+
+[sub_resource type="GDScript" id="GDScript_kqcpx"]
+script/source = "extends Control
+
+
+
+func _on_start_pressed():
+	pass # Replace with function body.
+	get_tree().change_scene_to_file(\"res://fase.tscn\")
+
+func _on_quit_pressed():
+	get_tree().quit()
+"
+
+[node name="MENU" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_kqcpx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(486.5, 323.75)
+scale = Vector2(1.57059, 1.25146)
+texture = ExtResource("3_gb3q6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = -201.0
+offset_right = 196.0
+offset_bottom = -45.0
+grow_vertical = 0
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.639216, 1, 0.129412, 1)
+theme_override_fonts/font = ExtResource("2_xiewl")
+theme_override_font_sizes/font_size = 40
+text = "START
+"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.639216, 1, 0.129412, 1)
+theme_override_fonts/font = ExtResource("2_xiewl")
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
